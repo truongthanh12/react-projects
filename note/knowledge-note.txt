@@ -1,0 +1,18 @@
+currying, hoisting
+Closure là một chức năng có quyền truy cập vào phạm vi cha, ngay cả khi scope đã đóng.
+hoisting: tương tự var let về local, global scope
+
+currying
+Currying là một phần quan trọng của một functional programing. 
+//Không tốt
+console.log(series.map((serie) => serie.id)) //should return [ 1, 2, 3 ])
+
+console.log(movies.map((movie) => movie.id)) //should return [ 1, 2, 3 ])
+
+//Tốt 
+const get = property => object => object[property];
+
+const getId = get('id'); // if need get name then get('name')
+
+console.log(movies.map(getId)); //should return [ 1, 2, 3 ]
+console.log(series.map(getId)); //should return [ 4, 5, 6 ]
